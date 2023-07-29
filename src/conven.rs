@@ -4,6 +4,8 @@ const YELLOW: &str = "\x1B[38;2;255;255;0m";
 const GREEN: &str = "\x1B[38;2;0;255;0m";
 const LIGHT_BLUE: &str = "\x1B[38;2;128;128;255m";
 
+use serde::{Deserialize, Serialize};
+
 pub fn feed_item_str(
     title: Option<&str>,
     desc: Option<&str>,
@@ -24,3 +26,17 @@ pub fn feed_item_str(
 
     title + &desc + &author + &link
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct UrlItems {
+    name: String,
+    ids: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct UrlCache {
+    urls: Vec<UrlItems>,
+}
+
+pub mod atom;
+pub mod rss;

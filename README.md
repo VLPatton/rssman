@@ -30,9 +30,7 @@ URL is separated by a newline.
   Link:
 <LINK>
 ```
-The output is best displayed when piped into `more` (ie, `rssman | more`).
-`less` has trouble displaying the ANSI escape codes used for color, and may
-provide an odd looking output.
+The output is best displayed when piped into `less -R` (e.g, `rssman | less -R`).
 ## Platform support
 I test this on Arch Linux x86\_64, so it'll probably work on most Unix-like
 systems that have a Rust toolchain. It doesn't support Windows b/c I don't use
